@@ -1,0 +1,1282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajiv Gandhi College Admission Portal</title>
+    
+    <style>
+	
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: #f0442b;
+            color: white;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f1f5fa;
+            color: #15345d;
+            line-height: 1.6;
+        }
+        .banner {
+            width: 100%;
+			height:100px;
+            position: sticky;
+            top: 0;
+            z-index:2;
+            background: #052957;
+            box-shadow: 0 4px 15px #001b3c35;
+        }
+
+        .banner img {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            text-align: center;
+            padding: 35px 15px 25px;
+            background: linear-gradient(135deg, #ffffff, #eaf2ff);
+            border-bottom: 3px solid #ed492e;
+        }
+
+        .hero h1 {
+            font-size: clamp(24px, 4vw, 36px);
+            color: #082c5b;
+            line-height: 1.3;
+            margin-bottom: 8px;
+        }
+
+        .hero p {
+            color: #64748b;
+            font-size: 15px;
+        }
+
+        .year {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: #ed492e;
+            color: white;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        /* PAGE LAYOUT */
+
+        .layout {
+            width: min(1200px, 94%);
+            margin: 35px auto;
+            display: grid;
+            grid-template-columns: 230px minmax(0, 1fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        /* LEFT SIDEBAR */
+
+        .sidebar {
+            background: white;
+            border-radius: 12px;
+            padding: 25px 18px;
+            box-shadow: 0 5px 22px #17395c12;
+            position: sticky;
+            top: 185px;
+        }
+
+        .sidebar h3 {
+            font-size: 16px;
+            margin-bottom: 22px;
+            color: #082c5b;
+        }
+
+        .steps {
+            list-style: none;
+            counter-reset: step;
+        }
+
+        .steps li {
+            counter-increment: step;
+            position: relative;
+            padding: 0 0 25px 43px;
+            color: #536985;
+            font-size: 13px;
+        }
+
+        .steps li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 30px;
+            display: grid;
+            place-items: center;
+            border-radius: 50%;
+            background: #e6edf7;
+            color: #15345d;
+            font-weight: bold;
+        }
+        .steps li:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            left: 14px;
+            top: 32px;
+            width: 2px;
+            height: 20px;
+            background: #d5dfed;
+        }
+
+        .steps li:first-child::before {
+            background: #ed492e;
+            color: white;
+        }
+
+        .steps a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .steps a:hover {
+            color: #ed492e;
+        }
+
+        .sidebar-note {
+            margin-top: 10px;
+            padding: 15px;
+            border-radius: 8px;
+            background: #fff1ed;
+            color: #a63220;
+            font-size: 12px;
+        }
+
+        /* FORM CONTAINER */
+
+        .form-container {
+            min-width: 0;
+            padding: 25px;
+            border-radius: 14px;
+            background: white;
+            box-shadow: 0 8px 30px #17395c16;
+        }
+
+        .section {
+            border-bottom: 1px solid #e0e8f3;
+			width:100%;
+        }
+
+        .section:first-child {
+            padding-top: 0;
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 22px;
+        }
+
+        .section-icon {
+            width: 45px;
+            height: 45px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: #fff0ec;
+            color: #ed492e;
+            font-size: 23px;
+        }
+
+        .section-heading h2 {
+            font-size: 20px;
+            color: #082c5b;
+        }
+
+        .section-heading p {
+            color: #718198;
+            font-size: 12px;
+        }
+
+        .part-number {
+            margin-left: auto;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: #082c5b;
+            color: white;
+            font-size: 11px;
+            white-space: nowrap;
+        }
+
+        /* INPUT GRID */
+
+        .fields {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .field label,
+        .group-title {
+            display: block;
+            margin-bottom: 7px;
+            color: #263d5c;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .field label::after {
+            content: "";
+        }
+
+        .field:has(input:required) label::after,
+        .field:has(select:required) label::after,
+        .field:has(textarea:required) label::after {
+            content: " *";
+            color: #ed492e;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #cbd8e8;
+            border-radius: 7px;
+            outline: none;
+            background: #fafdff;
+            color: #15345d;
+            font: inherit;
+            font-size: 13px;
+            transition: border-color .2s, box-shadow .2s,
+                        background .2s;
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: #91a1b6;
+            font-size: 12px;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #ed492e;
+            background: white;
+            box-shadow: 0 0 0 3px #ed492e18;
+        }
+
+        input:required,
+        select:required,
+        textarea:required {
+            border-left: 3px solid #e9a293; 	
+        }
+
+        input:disabled,
+        select:disabled,
+        textarea:disabled {
+            background: #e9edf3;
+            color: #8995a5;
+            cursor: not-allowed;
+        }
+
+        input:valid:not(:placeholder-shown) {
+            border-color: #91bfa2;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 95px;
+        }
+
+        /* RADIO AND CHECKBOX GROUPS */
+
+        .choice-group {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .choice {
+            display: flex;
+            align-items: center;
+            gap: 7px;
+            padding: 10px 13px;
+            border: 1px solid #d5dfed;
+            border-radius: 7px;
+            background: #fafdff;
+            font-size: 13px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .choice input {
+            width: auto;
+            accent-color: #ed492e;
+        }
+
+        .choice:has(input:checked) {
+            border-color: #ed492e;
+            background: #fff1ed;
+            color: #a63220;
+        }
+
+        .choice:hover {
+            border-color: #ed492e;
+        }
+
+        /* DOCUMENT UPLOAD */
+
+        .upload-box {
+            padding: 18px;
+            border: 2px dashed #b8c9df;
+            border-radius: 9px;
+            background: #f7faff;
+        }
+
+        .upload-box input {
+            padding: 10px;
+            background: white;
+        }
+
+        .upload-box p {
+            margin-top: 7px;
+            color: #7b8ba1;
+            font-size: 11px;
+        }
+
+        /* DOCUMENT CHECKLIST */
+
+        .document-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 12px;
+        }
+
+        .document-list label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border: 1px solid #dce5f0;
+            border-radius: 7px;
+            background: #fafdff;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .document-list input {
+            width: auto;
+            accent-color: #ed492e;
+        }
+
+        .document-list label:has(input:checked) {
+            background: #fff1ed;
+            border-color: #ed492e;
+        }
+
+        /* DECLARATION */
+
+        .declaration {
+            padding: 17px;
+            border: 1px solid #ffd6cc;
+            border-radius: 9px;
+            background: #fff7f4;
+            color: #65443e;
+            font-size: 13px;
+        }
+
+        .declaration p:first-child::first-letter {
+            color: #ed492e;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .terms {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin: 20px 0;
+            color: #344b67;
+            font-size: 13px;
+        }
+
+        .terms input {
+            width: auto;
+            margin-top: 5px;
+            accent-color: #ed492e;
+        }
+
+        .terms a {
+            color: #d53c25;
+        }
+
+        .terms a:visited {
+            color: #7044a3;
+        }
+
+        /* BUTTONS */
+
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 20px;
+        }
+
+        button {
+            padding: 12px 23px;
+            border: 1px solid #ed492e;
+            border-radius: 7px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: .25s;
+        }
+
+        button:active {
+            transform: scale(.97);
+        }
+
+        button:disabled {
+            opacity: .5;
+            cursor: not-allowed;
+        }
+
+        .submit {
+            background: #ed492e;
+            color: white;
+        }
+
+        .submit::after {
+            content: "  →";
+        }
+
+        .submit:hover {
+            background: #c9321b;
+            box-shadow: 0 5px 14px #ed492e35;
+            transform: translateY(-2px);
+        }
+
+        .reset {
+            background: white;
+            color: #ed492e;
+        }
+
+        .reset:hover {
+            background: #fff1ed;
+        }
+
+        .hint {
+            margin-top: 15px;
+            color: #78899f;
+            font-size: 11px;
+        }
+
+        /* FOOTER */
+
+        footer {
+            padding: 25px 15px;
+            background: #052957;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+            line-height: 2;
+        }
+
+        footer strong {
+            font-size: 15px;
+        }
+
+        footer p:last-child {
+            color: #ffc078;
+        }
+
+        /* RESPONSIVE DESIGN */
+
+        @media (max-width: 850px) {
+            .layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: static;
+            }
+
+            .steps {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+            }
+
+            .steps li {
+                padding-bottom: 8px;
+            }
+
+            .steps li::after {
+                display: none;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .banner img {
+                min-height: 70px;
+                object-fit: contain;
+            }
+
+            .hero {
+                padding: 25px 12px;
+            }
+
+            .layout {
+                width: 94%;
+                margin: 20px auto;
+                gap: 15px;
+            }
+
+            .sidebar,
+            .form-container {
+                padding: 18px;
+            }
+
+            .fields,
+            .document-list {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 17px;
+            }
+
+            .part-number {
+                font-size: 10px;
+                padding: 4px 8px;
+            }
+
+            .choice-group {
+                align-items: stretch;
+            }
+
+            .choice {
+                width: 100%;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+
+            .buttons button {
+                width: 100%;
+            }
+        }	
+
+
+
+
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		html {
+			scroll-behavior: smooth;
+		}
+		body {
+			font-family: Arial, Helvetica, sans-serif;
+			background: #050a12;
+		}		
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+        header {
+            width: 100%;
+            position: sticky;
+            top: 0;
+			background:green;
+        }
+		.image_container
+		{
+			width:100%;
+			height:75px;
+		}
+        .top_image{
+            width: 100%;
+            height: 100%; 
+        }
+		nav
+		{		
+			width:60%;
+			padding:.5%;
+			gap:20px;
+			font-size:18px;
+			background:red;
+			display:flex;
+			align-items:center;
+			justify-content:center;
+			margin-bottom:40px;		
+			background: radial-gradient(circle,rgba(224, 234, 255, 1) 32%, rgba(255, 255, 255, .1) 58%);			
+		}
+        .main {
+            width: 100%;				
+			height:100%;	
+            background-image: url("https://scontent.fixu1-1.fna.fbcdn.net/v/t39.30808-6/518411392_1755605341719528_9220929816272425973_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x860&ctp=p180x540&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=PZUHxfRP28QQ7kNvwGU4PBP&_nc_oc=Ado03S20OnB3MQbWbyVqgPuA0bJvNkN-Ucz-ommyUEGwGlYKUpt86UwQvRp35FYcpHg&_nc_zt=23&_nc_ht=scontent.fixu1-1.fna&_nc_gid=fgXezAUhFfLaT250M_nEXg&_nc_ss=7b289&oh=00_AQOePX-CrZgNhInoDYQ-vw8XnVAxdWSGLIjoovLquWHcFA&oe=6AD53D72");
+            background-repeat: no-repeat;
+            background-position:center;	
+            background-size: 100% 100%;	
+			object-position: top center;
+			position:fixed;
+			
+			object-fit:cover;
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			
+        }
+		
+		.form1
+		{
+			width:60%;
+			height:70vh;
+			background-color:#88A6C0;
+			border-radius:10px;
+			background:rgba(199, 220, 237,.5);
+			padding:1%;
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			overflow-x:hidden;
+			overflow-y: scroll;
+			margin-bottom:40px;
+		}
+		.form1::-webkit-scrollbar
+		{
+			width:8px;
+		}
+		.form1::-webkit-scrollbar-track 
+		{
+			border-radius:10px;
+		}
+		.form1::-webkit-scrollbar-thumb 
+		{
+			background:rgba(199, 220, 237,.9);
+			border-radius:10px;
+			height:5px;
+			width:20px;
+			cursor:pointer;
+
+		}
+		.form1::-webkit-scrollbar-thumb:hover 
+		{
+			background:rgba(10, 27, 81,.8);
+		}		
+		.admission_process_points
+		{
+			background-color:green;
+			width:80%;
+			padding:1%;
+		}
+    </style>
+</head>
+
+<body>
+    <header>
+		<div class="image_container">
+			<img class="top_image" src="C:\Users\DELL\Downloads\image_19b2e4c7.jpg" alt="College Header Banner">
+		</div>
+    </header>
+    <main class="main">
+		<nav>
+			<a href="">Home</a>
+			|
+			<a href="">About</a>
+			|
+			<a href="">Admission</a>
+			|
+			<a href="">Contact</a>			
+		</nav>
+		<section class="form1">
+                <section class="section" id="personal">
+
+                    <div class="section-heading">
+                        <div class="section-icon">👤</div>
+                        <div>
+                            <h2>Personal Information</h2>
+                            <p>Please enter your basic details.</p>
+                        </div>
+                        <span class="part-number">PART 1 OF 4</span>
+                    </div>
+
+                    <div class="fields">
+
+                        <div class="field">
+                            <label for="name">Full Name</label>
+                            <input id="name" name="name"
+                                   type="text"
+                                   placeholder="Enter your full name"
+                                   autocomplete="name"
+                                   required>
+                        </div>
+
+                        <div class="field">
+                            <label for="dob">Date of Birth</label>
+                            <input id="dob" name="dob"
+                                   type="date" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="undisclosed">Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Email Address</label>
+                            <input id="email" name="email"
+                                   type="email"
+                                   placeholder="example@gmail.com"
+                                   autocomplete="email"
+                                   required>
+                        </div>
+
+                        <div class="field">
+                            <label for="mobile">Mobile Number</label>
+                            <input id="mobile" name="mobile"
+                                   type="tel"
+                                   pattern="[0-9]{10}"
+                                   maxlength="10"
+                                   inputmode="numeric"
+                                   placeholder="10-digit mobile number"
+                                   autocomplete="tel"
+                                   required>
+                        </div>
+
+                        <div class="field">
+                            <label for="guardian">Parent / Guardian Name</label>
+                            <input id="guardian" name="guardian"
+                                   type="text"
+                                   placeholder="Enter guardian's name"
+                                   required>
+                        </div>
+
+                        <div class="field full">
+                            <label for="address">Full Address</label>
+                            <textarea id="address" name="address"
+                                      placeholder="House number, street, area"
+                                      autocomplete="street-address"
+                                      required></textarea>
+                        </div>
+
+                        <div class="field">
+                            <label for="city">City</label>
+                            <input id="city" name="city"
+                                   type="text"
+                                   placeholder="Enter your city"
+                                   required>
+                        </div>
+
+                        <div class="field">
+                            <label for="state">State</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select state</option>
+                                <option>Maharashtra</option>
+                                <option>Madhya Pradesh</option>
+                                <option>Gujarat</option>
+                                <option>Telangana</option>
+                                <option>Karnataka</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="pin">PIN Code</label>
+                            <input id="pin" name="pin"
+                                   type="text"
+                                   pattern="[0-9]{6}"
+                                   maxlength="6"
+                                   inputmode="numeric"
+                                   placeholder="6-digit PIN code"
+                                   required>
+                        </div>
+                    </div>
+                </section>
+		</section>
+    </main>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html> -->
+<!-- <html lang="en"> -->
+<!-- <head> -->
+<!-- <meta charset="UTF-8"> -->
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+<!-- <title>Online Admission | Rajiv Gandhi College</title> -->
+
+<!-- <style> -->
+<!-- * { -->
+    <!-- margin: 0; -->
+    <!-- padding: 0; -->
+    <!-- box-sizing: border-box; -->
+<!-- } -->
+
+<!-- body { -->
+    <!-- font-family: Arial, sans-serif; -->
+    <!-- background: #eef3fa; -->
+    <!-- color: #102b50; -->
+<!-- } -->
+
+<!-- .banner { -->
+	<!-- width: 100%; -->
+	<!-- height: 100px; -->
+	<!-- position: sticky; -->
+	<!-- top: 0;	 -->
+<!-- } -->
+<!-- .banner img{ -->
+	<!-- height:100%; -->
+	<!-- width:100%; -->
+<!-- } -->
+
+<!-- .logo { -->
+    <!-- width: 95px; -->
+    <!-- height: 95px; -->
+    <!-- border: 3px solid #e7b83e; -->
+    <!-- border-radius: 50%; -->
+    <!-- display: grid; -->
+    <!-- place-items: center; -->
+    <!-- background: white; -->
+    <!-- color: #12365f; -->
+    <!-- font-size: 27px; -->
+    <!-- font-weight: bold; -->
+<!-- } -->
+
+<!-- .hero { -->
+    <!-- text-align: center; -->
+    <!-- padding: 30px 15px 20px; -->
+<!-- } -->
+
+<!-- .hero h2 { -->
+    <!-- font-size: 30px; -->
+    <!-- margin-bottom: 8px; -->
+<!-- } -->
+
+<!-- .hero p { -->
+    <!-- color: #63758c; -->
+<!-- } -->
+
+<!-- .year { -->
+    <!-- display: inline-block; -->
+    <!-- margin-top: 15px; -->
+    <!-- padding: 9px 22px; -->
+    <!-- border-radius: 25px; -->
+    <!-- background: #f3c957; -->
+    <!-- color: #102b50; -->
+    <!-- font-weight: bold; -->
+    <!-- font-size: 13px; -->
+<!-- } -->
+
+<!-- .container { -->
+    <!-- width: 100%; -->
+    <!-- border-radius: 12px; -->
+	<!-- padding:0 5%; -->
+    <!-- box-shadow: 0 8px 30px #17395c18; -->
+            <!-- background-image: url("https://scontent.fixu1-1.fna.fbcdn.net/v/t39.30808-6/518411392_1755605341719528_9220929816272425973_n.jpg?stp=dst-jpg_tt6&cstp=mx1280x860&ctp=p180x540&_nc_cat=104&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=PZUHxfRP28QQ7kNvwGU4PBP&_nc_oc=Ado03S20OnB3MQbWbyVqgPuA0bJvNkN-Ucz-ommyUEGwGlYKUpt86UwQvRp35FYcpHg&_nc_zt=23&_nc_ht=scontent.fixu1-1.fna&_nc_gid=fgXezAUhFfLaT250M_nEXg&_nc_ss=7b289&oh=00_AQOePX-CrZgNhInoDYQ-vw8XnVAxdWSGLIjoovLquWHcFA&oe=6AD53D72"); -->
+            <!-- background-repeat: no-repeat; -->
+            <!-- background-position: center;	 -->
+            <!-- background-size: 100% 100%;	 -->
+			<!-- background-attachment: fixed;				 -->
+	
+<!-- } -->
+
+<!-- .section { -->
+    
+	
+	<!-- background: rgba(255, 255, 255, 0.3);	 -->
+	
+<!-- } -->
+
+<!-- .section h3 { -->
+    <!-- font-size: 19px; -->
+    <!-- padding-bottom: 12px; -->
+    <!-- margin-bottom: 18px; -->
+    <!-- border-bottom: 1px solid #c8d9f4; -->
+<!-- } -->
+
+<!-- .fields { -->
+    <!-- display: grid; -->
+    <!-- grid-template-columns: repeat(3, minmax(0, 1fr)); -->
+    <!-- gap: 18px; -->
+<!-- } -->
+
+<!-- .field label { -->
+    <!-- display: block; -->
+    <!-- font-size: 13px; -->
+    <!-- font-weight: bold; -->
+    <!-- margin-bottom: 8px; -->
+	<!-- color:black; -->
+<!-- } -->
+
+<!-- input, select, textarea { -->
+    <!-- width: 100%; -->
+    <!-- padding: 12px; -->
+    <!-- border: 1px solid #cad8ea; -->
+    <!-- border-radius: 6px; -->
+    <!-- font: inherit; -->
+    <!-- font-size: 14px; -->
+    <!-- background: #fff; -->
+    <!-- outline: none; -->
+<!-- } -->
+
+<!-- input:focus, select:focus, textarea:focus { -->
+    <!-- border-color: #2466ad; -->
+    <!-- box-shadow: 0 0 0 3px #2466ad15; -->
+<!-- } -->
+
+<!-- .full { -->
+    <!-- grid-column: 1 / -1; -->
+<!-- } -->
+
+<!-- .upload { -->
+    <!-- padding: 20px; -->
+    <!-- background: #f6f9ff; -->
+    <!-- border: 2px dashed #a8c5ec; -->
+<!-- } -->
+
+<!-- .check { -->
+    <!-- display: flex; -->
+    <!-- align-items: flex-start; -->
+    <!-- gap: 10px; -->
+    <!-- margin-bottom: 22px; -->
+    <!-- font-size: 13px; -->
+	<!-- background: rgba(255, 255, 255, 0.3); -->
+	<!-- margin-top:30px; -->
+<!-- } -->
+
+<!-- .check input { -->
+    <!-- width: auto; -->
+    <!-- margin-top: 2px; -->
+<!-- } -->
+<!-- .check span -->
+<!-- { -->
+	<!-- color:black; -->
+<!-- } -->
+
+<!-- .buttons { -->
+    <!-- display: flex; -->
+    <!-- justify-content: center; -->
+    <!-- gap: 15px; -->
+    <!-- flex-wrap: wrap; -->
+<!-- } -->
+
+<!-- button { -->
+    <!-- padding: 13px 28px; -->
+    <!-- border: 1px solid #123d76; -->
+    <!-- border-radius: 6px; -->
+    <!-- font-size: 14px; -->
+    <!-- font-weight: bold; -->
+    <!-- cursor: pointer; -->
+    <!-- transition: .3s; -->
+<!-- } -->
+
+<!-- .submit { -->
+    <!-- background: #103568; -->
+    <!-- color: white; -->
+<!-- } -->
+
+<!-- .reset { -->
+    <!-- background: white; -->
+    <!-- color: #103568; -->
+<!-- } -->
+
+<!-- button:hover { -->
+    <!-- transform: translateY(-2px); -->
+    <!-- box-shadow: 0 5px 12px #102b5025; -->
+<!-- } -->
+
+<!-- footer { -->
+    <!-- text-align: center; -->
+    <!-- padding: 22px; -->
+    <!-- background: #071d3e; -->
+    <!-- color: white; -->
+    <!-- font-size: 13px; -->
+    <!-- line-height: 1.8; -->
+<!-- } -->
+
+<!-- @media (max-width: 700px) { -->
+    <!-- .banner { -->
+        <!-- padding: 22px 15px; -->
+        <!-- gap: 14px; -->
+    <!-- } -->
+
+    <!-- .logo { -->
+        <!-- width: 65px; -->
+        <!-- height: 65px; -->
+        <!-- flex-shrink: 0; -->
+        <!-- font-size: 19px; -->
+    <!-- } -->
+
+    <!-- .banner h1 { -->
+        <!-- font-size: 18px; -->
+    <!-- } -->
+
+    <!-- .banner p { -->
+        <!-- font-size: 11px; -->
+        <!-- letter-spacing: 1px; -->
+    <!-- } -->
+
+    <!-- .hero h2 { -->
+        <!-- font-size: 24px; -->
+    <!-- } -->
+
+    <!-- .container { -->
+        <!-- margin: 0 12px 25px; -->
+        <!-- padding: 18px; -->
+    <!-- } -->
+
+    <!-- .fields { -->
+        <!-- grid-template-columns: 1fr; -->
+    <!-- } -->
+
+    <!-- .full { -->
+        <!-- grid-column: auto; -->
+    <!-- } -->
+
+    <!-- .buttons button { -->
+        <!-- width: 100%; -->
+    <!-- }	 -->
+<!-- } -->
+<!-- input, -->
+<!-- select, -->
+<!-- textarea { -->
+    <!-- background: rgba(230, 240, 255, 0.7); -->
+    <!-- color: #102b50; -->
+    <!-- border: 1px solid rgba(30, 80, 150, 0.3); -->
+    <!-- border-radius: 6px; -->
+    <!-- padding: 12px; -->
+<!-- } -->
+<!-- </style> -->
+<!-- </head> -->
+
+<!-- <body> -->
+
+<!-- <header class="banner"> -->
+	<!-- <img src="C:\Users\DELL\Downloads\image_19b2e4c7.jpg" alt="College Header Banner"> -->
+<!-- </header> -->
+
+<!-- <div class="hero"> -->
+    <!-- <h2>ONLINE ADMISSION FORM</h2> -->
+    <!-- <p>Begin your journey in Computer Science</p> -->
+    <!-- <span class="year">ACADEMIC YEAR 2026–27</span> -->
+<!-- </div> -->
+
+<!-- <main class="container"> -->
+<!-- <form action="#" method="post" enctype="multipart/form-data"> -->
+
+    <!-- <section class="section"> -->
+        <!-- <h3>👤 Personal Information</h3> -->
+        <!-- <div class="fields"> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="name">Full Name *</label> -->
+                <!-- <input id="name" name="name" type="text" -->
+                       <!-- placeholder="Enter your full name" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="dob">Date of Birth *</label> -->
+                <!-- <input id="dob" name="dob" type="date" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="gender">Gender *</label> -->
+                <!-- <select id="gender" name="gender" required> -->
+                    <!-- <option value="">Select Gender</option> -->
+                    <!-- <option>Male</option> -->
+                    <!-- <option>Female</option> -->
+                    <!-- <option>Prefer not to say</option> -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="email">Email Address *</label> -->
+                <!-- <input id="email" name="email" type="email" -->
+                       <!-- placeholder="example@domain.com" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="mobile">Mobile Number *</label> -->
+                <!-- <input id="mobile" name="mobile" type="tel" -->
+                       <!-- pattern="[0-9]{10}" maxlength="10" -->
+                       <!-- placeholder="10-digit mobile number" required> -->
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </section> -->
+
+    <!-- <section class="section"> -->
+        <!-- <h3>🎓 Academic Details</h3> -->
+        <!-- <div class="fields"> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="qualification">Previous Qualification *</label> -->
+                <!-- <select id="qualification" name="qualification" required> -->
+                    <!-- <option value="">Select Qualification</option> -->
+                    <!-- <option>SSC (10th)</option> -->
+                    <!-- <option>HSC (12th)</option> -->
+                    <!-- <option>Diploma</option> -->
+                    <!-- <option>Graduation</option> -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="board">Board / University *</label> -->
+                <!-- <input id="board" name="board" type="text" -->
+                       <!-- placeholder="Enter board / university" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="passing">Passing Year *</label> -->
+                <!-- <select id="passing" name="passing" required> -->
+                    <!-- <option value="">Select Year</option> -->
+                    <!-- <option>2026</option> -->
+                    <!-- <option>2025</option> -->
+                    <!-- <option>2024</option> -->
+                    <!-- <option>2023</option> -->
+                    <!-- <option>2022</option> -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="percentage">Percentage *</label> -->
+                <!-- <input id="percentage" name="percentage" type="number" -->
+                       <!-- min="0" max="100" step="0.01" -->
+                       <!-- placeholder="e.g. 85.50" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="course">Course Applying For *</label> -->
+                <!-- <select id="course" name="course" required> -->
+                    <!-- <option value="">Select Course</option> -->
+                    <!-- <option>BCA</option> -->
+                    <!-- <option>B.Sc. Computer Science</option> -->
+                    <!-- <option>BCS</option> -->
+                    <!-- <option>M.Sc. Computer Science</option> -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </section> -->
+
+    <!-- <section class="section"> -->
+        <!-- <h3>📍 Address Details</h3> -->
+        <!-- <div class="fields"> -->
+
+            <!-- <div class="field full"> -->
+                <!-- <label for="address">Full Address *</label> -->
+                <!-- <textarea id="address" name="address" rows="2" -->
+                          <!-- placeholder="House No., Street, Area" -->
+                          <!-- required></textarea> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="city">City *</label> -->
+                <!-- <input id="city" name="city" type="text" -->
+                       <!-- placeholder="Enter your city" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="state">State *</label> -->
+                <!-- <select id="state" name="state" required> -->
+                    <!-- <option value="">Select State</option> -->
+                    <!-- <option>Maharashtra</option> -->
+                    <!-- <option>Madhya Pradesh</option> -->
+                    <!-- <option>Gujarat</option> -->
+                    <!-- <option>Telangana</option> -->
+                    <!-- <option>Karnataka</option> -->
+                    <!-- <option>Other</option> -->
+                <!-- </select> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="pin">PIN Code *</label> -->
+                <!-- <input id="pin" name="pin" type="text" -->
+                       <!-- pattern="[0-9]{6}" maxlength="6" -->
+                       <!-- placeholder="6-digit PIN code" required> -->
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </section> -->
+
+    <!-- <section class="section"> -->
+        <!-- <h3>📄 Documents Upload</h3> -->
+        <!-- <div class="fields"> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="photo">Student Photo *</label> -->
+                <!-- <input class="upload" id="photo" name="photo" -->
+                       <!-- type="file" accept="image/jpeg,image/png" required> -->
+            <!-- </div> -->
+
+            <!-- <div class="field"> -->
+                <!-- <label for="marksheet">Previous Marksheet *</label> -->
+                <!-- <input class="upload" id="marksheet" name="marksheet" -->
+                       <!-- type="file" -->
+                       <!-- accept=".pdf,.jpg,.jpeg,.png" required> -->
+            <!-- </div> -->
+
+        <!-- </div> -->
+    <!-- </section> -->
+
+    <!-- <label class="check"> -->
+        <!-- <input type="checkbox" name="confirmation" required> -->
+        <!-- <span>I confirm that the information provided above is correct and complete.</span> -->
+    <!-- </label> -->
+
+    <!-- <div class="buttons"> -->
+        <!-- <button class="submit" type="submit"> -->
+            <!-- Submit Application -->
+        <!-- </button> -->
+
+        <!-- <button class="reset" type="reset"> -->
+            <!-- Reset Form -->
+        <!-- </button> -->
+    <!-- </div> -->
+
+<!-- </form> -->
+<!-- </main> -->
+
+<!-- <footer> -->
+    <!-- <strong>Rajiv Gandhi College of Computer Science</strong><br> -->
+    <!-- Chh. Sambhajinagar, Maharashtra, India<br> -->
+    <!-- Learn &nbsp; | &nbsp; Build &nbsp; | &nbsp; Create a Better Tomorrow -->
+<!-- </footer> -->
+
+<!-- </body> -->
+<!-- </html> -->
