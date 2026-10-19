@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>Rajiv Gandhi College Admission Portal</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 		<meta name="description" content="Rajiv Gandhi College Admission Portal">
-		<title>Rajiv Gandhi College Admission Portal</title>
 
 		<style>
 			* {
@@ -13,28 +12,27 @@
 				padding: 0;
 				box-sizing: border-box;
 			}
-
 			html {
 				scroll-behavior: smooth;
 			}
-
 			::selection {
 				background: #f0442b;
 				color: white;
 			}
-
-			body {
+			body 
+			{
 				font-family: Arial, Helvetica, sans-serif;
 				background: #f1f5fa;
 				color: #15345d;
 				line-height: 1.6;
 			}
-
-			a {
+			a
+			{
 				text-decoration: none;
 				color: inherit;
 			}
-			header {
+			header 
+			{
 				width: 100%;
 				height: 100px;
 				position: sticky;
@@ -43,13 +41,13 @@
 				background: #052957;
 				box-shadow: 0 4px 15px #001b3c35;
 			}
-
-			.image_container {
+			.image_container 
+			{
 				height:100px;
 				width:100%;
 			}
-
-			.top_image {
+			.top_image 
+			{
 				width: 100%;
 				height: 100%;
 			}
@@ -64,39 +62,44 @@
 				color: white;
 				font-size: 16px;
 			}
-			nav a {
+			nav a 
+			{
 				transition: color 0.2s;
 			}
 
-			nav a:hover {
+			nav a:hover 
+			{
 				color: #ff987f;
 			}
-			.main {
+			.main 
+			{
 				min-height: 100vh;
 				padding-bottom: 35px;
 				background:
 					linear-gradient(#071a3280, #071a3280),
 					url("images/college-background.jpg") center / cover fixed;
 			}
-			.hero {
-				padding: 30px 15px;
+			.hero 
+			{
+				padding: 20px 15px;
 				text-align: center;
 				background: linear-gradient(135deg, #ffffff, #eaf2ff);
-				border-bottom: 3px solid #ed492e;
+				border-bottom: 3px solid #ed492e;	
 			}
-			.hero h1 {
+			.hero h1
+			{
 				font-size: clamp(24px, 4vw, 36px);
-				line-height: 1.3;
+				line-height: 1.1;
 				color: #082c5b;
 				margin-bottom: 8px;
 			}
-
-			.hero p {
+			.hero p 
+			{
 				color: #64748b;
 				font-size: 14px;
 			}
-
-			.year {
+			.year 
+			{
 				display: inline-block;
 				margin-top: 15px;
 				padding: 7px 20px;
@@ -106,48 +109,46 @@
 				font-size: 13px;
 				font-weight: bold;
 			}
-
-			/* PAGE LAYOUT */
-			.layout {
-				width: min(1200px, 94%);
+			.layout 
+			{
+				width:95%;
 				margin: 30px auto;
 				display: grid;
 				grid-template-columns: 230px minmax(0, 1fr);
 				gap: 25px;
 				align-items: start;
 			}
-
-			/* SIDEBAR */
-			.sidebar {
+			.sidebar 
+			{
 				position: sticky;
-				top: 120px;
+				top: 130px;
 				padding: 25px 18px;
 				border-radius: 12px;
 				background: white;
 				box-shadow: 0 5px 22px #17395c25;
 			}
-
-			.sidebar h3 {
+			.sidebar h3 
+			{
 				margin-bottom: 22px;
 				color: #082c5b;
 				font-size: 16px;
 			}
-
-			.steps {
+			.steps 
+			{
 				list-style: none;
 				counter-reset: step;
 			}
-
-			.steps li {
+			.steps li 
+			{
 				position: relative;
 				counter-increment: step;
 				padding: 0 0 25px 43px;
 				color: #536985;
 				font-size: 13px;
 			}
-
-			.steps li::before {
-				content: counter(step);
+			.steps li::before 
+			{
+				content: "";
 				position: absolute;
 				left: 0;
 				top: 0;
@@ -160,8 +161,24 @@
 				color: #15345d;
 				font-weight: bold;
 			}
-
-			.steps li:not(:last-child)::after {
+			.steps li:nth-child(1)::before 
+			{
+				content: "1";
+			}
+			.steps li:nth-child(2)::before 
+			{
+				content: "2"; 
+			}
+			.steps li:nth-child(3)::before 
+			{
+				content: "3";
+			}
+			.steps li:nth-child(4)::before 
+			{
+				content: "4";
+			}
+			.steps li:not(:last-child)::after 
+			{
 				content: "";
 				position: absolute;
 				left: 14px;
@@ -171,17 +188,17 @@
 				background: #d5dfed;
 				background:black;
 			}
-
-			.steps li:first-child::before {
+			.steps li:first-child::before 
+			{
 				background: #ed492e;
 				color: white;
 			}
-
-			.steps a:hover {
+			.steps a:hover 
+			{
 				color: #ed492e;
 			}
-
-			.sidebar-note {
+			.sidebar-note 
+			{
 				margin-top: 10px;
 				padding: 15px;
 				border-radius: 8px;
@@ -189,7 +206,8 @@
 				color: #a63220;
 				font-size: 12px;
 			}
-			.form1 {
+			.form1 
+			{
 				width: 100%;
 				min-width: 0;
 				padding: 25px;
@@ -197,21 +215,21 @@
 				background: rgba(255, 255, 255, 0.96);
 				box-shadow: 0 5px 22px #001b3c25;
 			}
-
-			.section {
+			.section 
+			{
 				width: 100%;
 				padding-bottom: 25px;
 				border-bottom: 1px solid #e0e8f3;
 			}
-
-			.section-heading {
+			.section-heading 
+			{
 				display: flex;
 				align-items: center;
 				gap: 13px;
 				margin-bottom: 22px;
 			}
-
-			.section-icon {
+			.section-icon 
+			{
 				display: grid;
 				place-items: center;
 				flex-shrink: 0;
@@ -222,18 +240,18 @@
 				color: #ed492e;
 				font-size: 23px;
 			}
-
-			.section-heading h2 {
+			.section-heading h2 
+			{
 				color: #082c5b;
 				font-size: 20px;
 			}
-
-			.section-heading p {
+			.section-heading p 
+			{
 				color: #718198;
 				font-size: 12px;
 			}
-
-			.part-number {
+			.part-number 
+			{
 				margin-left: auto;
 				padding: 5px 12px;
 				border-radius: 20px;
@@ -242,104 +260,81 @@
 				font-size: 11px;
 				white-space: nowrap;
 			}
-
-			/* FORM FIELDS */
-			.fields {
+			.fields 
+			{
 				display: grid;
 				grid-template-columns: repeat(2, minmax(0, 1fr));
 				gap: 18px;
 			}
-
-			.field {
-				min-width: 0;
-			}
-
-			.field label {
+			.field label 
+			{
 				display: block;
 				margin-bottom: 7px;
 				color: #263d5c;
 				font-size: 13px;
 				font-weight: bold;
 			}
-
-			.field label::after {
+			.field label::after 
+			{
 				content: "";
 			}
-
-			.field:has(input:required) label::after,
-			.field:has(select:required) label::after,
-			.field:has(textarea:required) label::after {
+			label.star::after
+			{
 				content: " *";
-				color: #ed492e;
+				color: #ed492e;	
 			}
-
-			input,
-			select,
-			textarea {
+			input,select,textarea 
+			{
 				width: 100%;
 				padding: 11px 12px;
 				border: 1px solid #cbd8e8;
 				border-radius: 7px;
 				outline: none;
-				background: #fafdff;
+				background: #fafdff;		
 				color: #15345d;
 				font-family: inherit;
 				font-size: 13px;
 				transition: border-color 0.2s, box-shadow 0.2s;
 			}
-
-			input::placeholder,
-			textarea::placeholder {
+			input::placeholder,textarea::placeholder 
+			{
 				color: #91a1b6;
 				font-size: 12px;
 			}
-
-			input:focus,
-			select:focus,
+			input:focus,select:focus,
 			textarea:focus {
 				border-color: #ed492e;
-				background: white;
+				background: white;				
 				box-shadow: 0 0 0 3px #ed492e18;
 			}
-
-			input:required,
-			select:required,
-			textarea:required {
+			input:required,select:required,textarea:required
+			{
 				border-left: 3px solid #e9a293;
 			}
-
-			input:disabled,
-			select:disabled,
-			textarea:disabled {
+			input:disabled,select:disabled,textarea:disabled {
 				background: #e9edf3;
 				color: #8995a5;
 				cursor: not-allowed;
 			}
-
-			input:valid:not(:placeholder-shown) {
-				border-color: #91bfa2;
+			.full 
+			{
+				grid-column: 1/-1;
 			}
-
-			.full {
-				grid-column: 1 / -1;
-			}
-
-			textarea {
+			textarea 
+			{
 				min-height: 90px;
 				resize: vertical;
 			}
-
-			/* BUTTONS */
-			.button_area {
+			.button_area 
+			{
 				display: flex;
 				align-items: center;
-				justify-content: flex-end;
-				flex-wrap: wrap;
-				gap: 12px;
+				justify-content:right;
+				gap: 15px;
 				margin-top: 10px;
 			}
-
-			button {
+			button 
+			{
 				padding: 12px 23px;
 				border: 1px solid #ed492e;
 				border-radius: 7px;
@@ -348,43 +343,46 @@
 				cursor: pointer;
 				transition: 0.25s;
 			}
-
-			button:active {
-				transform: scale(0.97);
-			}
-
-			.submit {
+			.submit 
+			{
 				background: #ed492e;
 				color: white;
 			}
-
-			.submit::after {
-				content: "  →";
+			.submit::after 
+			{
+				content: "  →";				
 			}
-
-			.submit:hover {
+			.submit:hover 
+			{
 				background: #c9321b;
 				box-shadow: 0 5px 14px #ed492e35;
 				transform: translateY(-2px);
 			}
-
+			.submit:active
+			{
+				background:rgba(234, 77, 56,.9);
+			}
 			.reset {
 				background: white;
 				color: #ed492e;
 			}
-
-			.reset:hover {
+			.reset:hover 
+			{
 				background: #fff1ed;
 			}
-
-			.hint {
+			.reset:active 
+			{
+				background:rgba(255, 147, 147,.3);
+				color:black;
+			}		
+			.hint 
+			{
 				margin-top: 15px;
 				color: #78899f;
 				font-size: 11px;
 			}
-
-			/* FOOTER */
-			footer {
+			footer 
+			{
 				padding: 25px 15px;
 				background: #052957;
 				color: white;
@@ -392,22 +390,21 @@
 				font-size: 12px;
 				line-height: 2;
 			}
-
-			footer strong {
+			footer strong 
+			{
 				font-size: 15px;
 			}
-
-			footer p:last-child {
+			footer p:last-child 
+			{
 				color: #ffc078;
 			}
 		</style>
 	</head>
-
 	<body>
 		<header>
-			<div class="image_container">
+			<figure class="image_container">
 				<img class="top_image" src="C:\Users\DELL\Downloads\image_19b2e4c7.jpg" alt="Rajiv Gandhi College Photo">
-			</div>
+			</figure>
 		</header>
 		<main class="main">
 			<nav aria-label="Main navigation">
@@ -424,14 +421,14 @@
 				<p>Welcome to the College Admission Portal</p>
 				<span class="year">Academic Year 2026–2027</span>
 			</section>
-			<div class="layout">
-				<aside class="sidebar" id="about">
+			<section class="layout">
+				<aside class="sidebar" id="about">								
 					<h3>Admission Process</h3>
 					<ol class="steps">
-						<li><a href="#personal">Personal Information</a></li>
-						<li><a href="#personal">Educational Details</a></li>
-						<li><a href="#personal">Document Upload</a></li>
-						<li><a href="#personal">Final Submission</a></li>
+						<li class="step1"><a href="#personal">Personal Information</a></li>
+						<li class="step2"><a href="part2.html">Educational Details</a></li>
+						<li class="step3"><a href="#personal">Document Upload</a></li>
+						<li class="step4"><a href="#personal">Final Submission</a></li>
 					</ol>
 					<div class="sidebar-note">
 						<strong>Important:</strong>
@@ -441,7 +438,7 @@
 				</aside>
 				<section class="form1" id="admission">
 					<form action="#" method="post">
-						<section class="section" id="personal">
+						<div class="section" id="personal">
 							<div class="section-heading">
 								<div class="section-icon">👤</div>
 								<div>
@@ -452,16 +449,15 @@
 							</div>
 							<div class="fields">
 								<div class="field">
-									<label for="name">Full Name</label>
+									<label for="name" class="star">Full Name</label>
 									<input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
 								</div>
 								<div class="field">
-									<label for="dob">Date of Birth</label>
+									<label for="dob" class="star">Date of Birth</label>
 									<input id="dob" name="dob" type="date" required>
 								</div>
-
 								<div class="field">
-									<label for="gender">Gender</label>
+									<label for="gender" class="star">Gender</label>
 									<select id="gender" name="gender" required>
 										<option value="">Select gender</option>
 										<option value="male">Male</option>
@@ -472,63 +468,30 @@
 										</option>
 									</select>
 								</div>
-
 								<div class="field">
-									<label for="email">Email Address</label>
+									<label for="email"  class="star">Email Address</label>
 									<input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email" required>
 								</div>
-
 								<div class="field">
-									<label for="mobile">Mobile Number</label>
-									<input
-										id="mobile"
-										name="mobile"
-										type="tel"
-										pattern="[0-9]{10}"
-										maxlength="10"
-										inputmode="numeric"
-										placeholder="10-digit mobile number"
-										autocomplete="tel"
-										required>
+									<label for="mobile" class="star">Mobile Number</label>
+									<input id="mobile" name="mobile" type="tel" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel" required>
 								</div>
-
 								<div class="field">
-									<label for="guardian">
+									<label for="guardian" class="star">
 										Parent / Guardian Name
 									</label>
-									<input
-										id="guardian"
-										name="guardian"
-										type="text"
-										placeholder="Enter guardian's name"
-										required
-									>
+									<input id="guardian" name="guardian" type="text" placeholder="Enter guardian's name" required>
 								</div>
-
 								<div class="field full">
-									<label for="address">Full Address</label>
-									<textarea
-										id="address"
-										name="address"
-										placeholder="House number, street, area"
-										autocomplete="street-address"
-										required
-									></textarea>
+									<label for="address" class="star">Full Address</label>
+									<textarea id="address" name="address" placeholder="House number, street, area" autocomplete="street-address" required></textarea>
 								</div>
-
 								<div class="field">
-									<label for="city">City</label>
-									<input
-										id="city"
-										name="city"
-										type="text"
-										placeholder="Enter your city"
-										required
-									>
+									<label for="city" class="star">City</label>
+									<input id="city" name="city" type="text" placeholder="Enter your city" required>
 								</div>
-
 								<div class="field">
-									<label for="state">State</label>
+									<label for="state" class="star">State</label>
 									<select id="state" name="state" required>
 										<option value="">Select state</option>
 										<option value="Maharashtra">Maharashtra</option>
@@ -539,45 +502,27 @@
 										<option value="Other">Other</option>
 									</select>
 								</div>
-
 								<div class="field">
-									<label for="pin">PIN Code</label>
-									<input
-										id="pin"
-										name="pin"
-										type="text"
-										pattern="[0-9]{6}"
-										maxlength="6"
-										inputmode="numeric"
-										placeholder="6-digit PIN code"
-										required
-									>
+									<label for="pin" class="star">PIN Code</label>
+									<input id="pin" name="pin" type="text" pattern="[0-9]{6}"maxlength="6" inputmode="numeric" placeholder="6-digit PIN code" required>
 								</div>
-
 							</div>
-
 							<p class="hint">
 								Fields marked with * are required.
 							</p>
-
 							<div class="button_area">
 								<button type="reset" class="reset">
 									Clear Form
 								</button>
-
 								<button type="submit" class="submit">
 									Save &amp; Next
 								</button>
 							</div>
-
-						</section>
-
+						</div>
 					</form>
-
 				</section>
-
-			</div>
-		</main>
+			</section>
+		</main>	
 		<footer id="contact">
 			<p><strong>Rajiv Gandhi College of Computer Science</strong></p>
 			<p>College Admission Portal | Academic Year 2026–2027</p>
