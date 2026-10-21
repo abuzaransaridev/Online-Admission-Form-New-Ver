@@ -3,6 +3,7 @@
 	<head>
 		<title>Rajiv Gandhi College Admission Portal</title>
 		<meta charset="UTF-8">
+		<meta name="author" content="Abuzar Ansari">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="Rajiv Gandhi College Admission Portal">
 
@@ -50,6 +51,7 @@
 			{
 				width: 100%;
 				height: 100%;
+				
 			}
 			nav {
 				display: flex;
@@ -75,9 +77,7 @@
 			{
 				min-height: 100vh;
 				padding-bottom: 35px;
-				background:
-					linear-gradient(#071a3280, #071a3280),
-					url("images/college-background.jpg") center / cover fixed;
+				background:linear-gradient(#071a3280, #071a3280);
 			}
 			.hero 
 			{
@@ -185,8 +185,7 @@
 				top: 32px;
 				width: 2px;
 				height: 20px;
-				background: #d5dfed;
-				background:black;
+				background: #d5dfed;la
 			}
 			.steps li:first-child::before 
 			{
@@ -208,18 +207,15 @@
 			}
 			.form1 
 			{
-				width: 100%;
-				min-width: 0;
 				padding: 25px;
 				border-radius: 12px;
 				background: rgba(255, 255, 255, 0.96);
 				box-shadow: 0 5px 22px #001b3c25;
 			}
-			.section 
+			.border-bottom 
 			{
-				width: 100%;
+				border-bottom: 1px solid #d3d3d4;
 				padding-bottom: 25px;
-				border-bottom: 1px solid #e0e8f3;
 			}
 			.section-heading 
 			{
@@ -273,10 +269,6 @@
 				color: #263d5c;
 				font-size: 13px;
 				font-weight: bold;
-			}
-			.field label::after 
-			{
-				content: "";
 			}
 			label.star::after
 			{
@@ -403,7 +395,7 @@
 	<body>
 		<header>
 			<figure class="image_container">
-				<img class="top_image" src="C:\Users\DELL\Downloads\image_19b2e4c7.jpg" alt="Rajiv Gandhi College Photo">
+				<img class="top_image" src="college-banner-photo.jpg" alt="Rajiv Gandhi College Photo">
 			</figure>
 		</header>
 		<main class="main">
@@ -412,7 +404,7 @@
 				<span>|</span>
 				<a href="#about">About</a>
 				<span>|</span>
-				<a href="#admission">Admission</a>
+				<a href="#personal">Admission</a>
 				<span>|</span>
 				<a href="#contact">Contact</a>
 			</nav>
@@ -425,10 +417,10 @@
 				<aside class="sidebar" id="about">								
 					<h3>Admission Process</h3>
 					<ol class="steps">
-						<li class="step1"><a href="#personal">Personal Information</a></li>
-						<li class="step2"><a href="part2.html">Educational Details</a></li>
-						<li class="step3"><a href="#personal">Document Upload</a></li>
-						<li class="step4"><a href="#personal">Final Submission</a></li>
+						<li class="step1"><a href="#">Personal Information</a></li>
+						<li class="step2"><a href="education-details.html">Academic Details</a></li>
+						<li class="step3"><a href="documentl-upload.html">Document Upload</a></li>
+						<li class="step4"><a href="declaration.html">Final Submission</a></li>
 					</ol>
 					<div class="sidebar-note">
 						<strong>Important:</strong>
@@ -436,88 +428,86 @@
 						before submitting your application.
 					</div>
 				</aside>
-				<section class="form1" id="admission">
-					<form action="#" method="post">
-						<div class="section" id="personal">
-							<div class="section-heading">
-								<div class="section-icon">👤</div>
-								<div>
-									<h2>Personal Information</h2>
-									<p>Please enter your basic details.</p>
-								</div>
-								<span class="part-number">PART 1 OF 4</span>
+				<section class="form1 section" id="personal">
+					<form class="border-bottom" action="#" method="post">						
+						<div class="section-heading">
+							<div class="section-icon">👤</div>
+							<div>
+								<h2>Personal Information</h2>
+								<p>Please enter your basic details.</p>
 							</div>
-							<div class="fields">
-								<div class="field">
-									<label for="name" class="star">Full Name</label>
-									<input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
-								</div>
-								<div class="field">
-									<label for="dob" class="star">Date of Birth</label>
-									<input id="dob" name="dob" type="date" required>
-								</div>
-								<div class="field">
-									<label for="gender" class="star">Gender</label>
-									<select id="gender" name="gender" required>
-										<option value="">Select gender</option>
-										<option value="male">Male</option>
-										<option value="female">Female</option>
-										<option value="other">Other</option>
-										<option value="undisclosed">
-											Prefer not to say
-										</option>
-									</select>
-								</div>
-								<div class="field">
-									<label for="email"  class="star">Email Address</label>
-									<input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email" required>
-								</div>
-								<div class="field">
-									<label for="mobile" class="star">Mobile Number</label>
-									<input id="mobile" name="mobile" type="tel" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel" required>
-								</div>
-								<div class="field">
-									<label for="guardian" class="star">
-										Parent / Guardian Name
-									</label>
-									<input id="guardian" name="guardian" type="text" placeholder="Enter guardian's name" required>
-								</div>
-								<div class="field full">
-									<label for="address" class="star">Full Address</label>
-									<textarea id="address" name="address" placeholder="House number, street, area" autocomplete="street-address" required></textarea>
-								</div>
-								<div class="field">
-									<label for="city" class="star">City</label>
-									<input id="city" name="city" type="text" placeholder="Enter your city" required>
-								</div>
-								<div class="field">
-									<label for="state" class="star">State</label>
-									<select id="state" name="state" required>
-										<option value="">Select state</option>
-										<option value="Maharashtra">Maharashtra</option>
-										<option value="Madhya Pradesh">Madhya Pradesh</option>
-										<option value="Gujarat">Gujarat</option>
-										<option value="Telangana">Telangana</option>
-										<option value="Karnataka">Karnataka</option>
-										<option value="Other">Other</option>
-									</select>
-								</div>
-								<div class="field">
-									<label for="pin" class="star">PIN Code</label>
-									<input id="pin" name="pin" type="text" pattern="[0-9]{6}"maxlength="6" inputmode="numeric" placeholder="6-digit PIN code" required>
-								</div>
+							<span class="part-number">PART 1 OF 4</span>
+						</div>
+						<div class="fields">
+							<div class="field">
+								<label for="name" class="star">Full Name</label>
+								<input id="name" name="name" type="text" placeholder="Enter your full name" autocomplete="name" required>
 							</div>
-							<p class="hint">
-								Fields marked with * are required.
-							</p>
-							<div class="button_area">
-								<button type="reset" class="reset">
-									Clear Form
-								</button>
-								<button type="submit" class="submit">
-									Save &amp; Next
-								</button>
+							<div class="field">
+								<label for="dob" class="star">Date of Birth</label>
+								<input id="dob" name="dob" type="date" required min="1950-01-01" max="2007-01-01">
 							</div>
+							<div class="field">
+								<label for="gender" class="star">Gender</label>
+								<select id="gender" name="gender" required>
+									<option value="">Select gender</option>
+									<option value="male">Male</option>
+									<option value="female">Female</option>
+									<option value="other">Other</option>
+									<option value="undisclosed">
+										Prefer not to say
+									</option>
+								</select>
+							</div>
+							<div class="field">
+								<label for="email"  class="star">Email Address</label>
+								<input id="email" name="email" type="email" placeholder="example@gmail.com" autocomplete="email" required>
+							</div>
+							<div class="field">
+								<label for="mobile" class="star">Mobile Number</label>
+								<input id="mobile" name="mobile" type="tel" pattern="[0-9]{10}" maxlength="10" inputmode="numeric" placeholder="10-digit mobile number" autocomplete="tel" required>
+							</div>
+							<div class="field">
+								<label for="guardian" class="star">
+									Parent / Guardian Name
+								</label>
+								<input id="guardian" name="guardian" type="text" placeholder="Enter guardian's name" autocomplete="text" required>
+							</div>
+							<div class="field full">
+								<label for="address" class="star">Full Address</label>
+								<textarea id="address" name="address" placeholder="House number, street, area" autocomplete="street-address" required></textarea>
+							</div>
+							<div class="field">
+								<label for="city" class="star">City</label>
+								<input id="city" name="city" type="text" placeholder="Enter your city" required autocomplete="text">
+							</div>
+							<div class="field">
+								<label for="state" class="star">State</label>
+								<select id="state" name="state" required>
+									<option value="">Select state</option>
+									<option value="Maharashtra">Maharashtra</option>
+									<option value="Madhya Pradesh">Madhya Pradesh</option>
+									<option value="Gujarat">Gujarat</option>
+									<option value="Telangana">Telangana</option>
+									<option value="Karnataka">Karnataka</option>
+									<option value="Other">Other</option>
+								</select>
+							</div>
+							<div class="field">
+								<label for="pin" class="star">PIN Code</label>
+								<input id="pin" name="pin" type="text" pattern="[0-9]{6}" maxlength="6" inputmode="numeric" placeholder="6-digit PIN code" required>
+							</div>
+						</div>
+						<p class="hint">
+							Fields marked with * are required.
+						</p>
+						<div class="button_area">
+							<button type="reset" class="reset">
+								Clear Form
+							</button>
+							<button type="submit" class="submit" formaction="education-details.html">
+								Save &amp; Next
+							</button>
 						</div>
 					</form>
 				</section>

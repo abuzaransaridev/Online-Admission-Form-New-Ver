@@ -1,10 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Rajiv Gandhi College Admission Portal</title>
+		<title>
+			Rajiv Gandhi College Admission Portal
+		</title>
+		
 		<meta charset="UTF-8">
+		<meta name="author" content="Abuzar Ansari">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<meta name="description" content="Rajiv Gandhi College Admission Portal">
+		<meta name="discription" content="Rajiv Gandhi College Admission Portal developed by Abuzar-Ansari-dev For Project">
+		<meta name="keywords" content="Abuzar-Ansari-dev,Abuzar ansari dev project,
+		Rajiv Gandhi College Of Computer Science Padegaon Aurangabad,IT College in Aurangabad">
 
 		<style>
 			* {
@@ -164,14 +170,20 @@
 			.steps li:nth-child(1)::before 
 			{
 				content: "1";
+				background: #ed492e;
+				color: white;				
 			}
 			.steps li:nth-child(2)::before 
 			{
-				content: "2"; 
+				content: "2";
+				background: #ed492e;
+				color: white;				
 			}
 			.steps li:nth-child(3)::before 
 			{
 				content: "3";
+				background: #ed492e;
+				color: white;					
 			}
 			.steps li:nth-child(4)::before 
 			{
@@ -187,11 +199,6 @@
 				height: 20px;
 				background: #d5dfed;
 				background:black;
-			}
-			.steps li:first-child::before 
-			{
-				background: #ed492e;
-				color: white;
 			}
 			.steps a:hover 
 			{
@@ -215,11 +222,10 @@
 				background: rgba(255, 255, 255, 0.96);
 				box-shadow: 0 5px 22px #001b3c25;
 			}
-			.section 
+			.border-bottom
 			{
-				width: 100%;
 				padding-bottom: 25px;
-				border-bottom: 1px solid #e0e8f3;
+				border-bottom: 1px solid #d3d3d4;
 			}
 			.section-heading 
 			{
@@ -329,9 +335,13 @@
 			{
 				display: flex;
 				align-items: center;
-				justify-content:right;
-				gap: 15px;
-				margin-top: 10px;
+				justify-content:space-between;				
+				margin-top: 20px;
+			}
+			.button_area_2
+			{
+				display:flex;
+				gap:20px;
 			}
 			button 
 			{
@@ -431,15 +441,11 @@
             font-size: 11px;
             white-space: nowrap;
         }
-
-        /* INPUT GRID */
-
         .fields {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
             gap: 20px;
         }
-
         .field label,
         .group-title {
             display: block;
@@ -448,18 +454,15 @@
             font-size: 13px;
             font-weight: bold;
         }
-
         .field label::after {
             content: "";
         }
-
         .field:has(input:required) label::after,
         .field:has(select:required) label::after,
         .field:has(textarea:required) label::after {
             content: " *";
             color: #ed492e;
         }
-
         input,
         select,
         textarea {
@@ -475,13 +478,11 @@
             transition: border-color .2s, box-shadow .2s,
                         background .2s;
         }
-
         input::placeholder,
         textarea::placeholder {
             color: #91a1b6;
             font-size: 12px;
         }
-
         input:focus,
         select:focus,
         textarea:focus {
@@ -489,13 +490,11 @@
             background: white;
             box-shadow: 0 0 0 3px #ed492e18;
         }
-
         input:required,
         select:required,
         textarea:required {
             border-left: 3px solid #e9a293;
         }
-
         input:disabled,
         select:disabled,
         textarea:disabled {
@@ -503,11 +502,9 @@
             color: #8995a5;
             cursor: not-allowed;
         }
-
         input:valid:not(:placeholder-shown) {
             border-color: #91bfa2;
         }
-
         .full {
             grid-column: 1 / -1;
         }
@@ -516,16 +513,12 @@
             resize: vertical;
             min-height: 95px;
         }
-
-        /* RADIO AND CHECKBOX GROUPS */
-
         .choice-group {
             display: flex;
             align-items: center;
             flex-wrap: wrap;
             gap: 12px;
         }
-
         .choice {
             display: flex;
             align-items: center;
@@ -538,25 +531,19 @@
             cursor: pointer;
             transition: .2s;
         }
-
         .choice input {
             width: auto;
             accent-color: #ed492e;
         }
-
         .choice:has(input:checked) {
             border-color: #ed492e;
             background: #fff1ed;
             color: #a63220;
         }
-
         .choice:hover {
             border-color: #ed492e;
         }
-
-        /* DOCUMENT UPLOAD */
-
-        .upload-box {
+		.upload-box {
             padding: 18px;
             border: 2px dashed #b8c9df;
             border-radius: 9px;
@@ -573,9 +560,6 @@
             color: #7b8ba1;
             font-size: 11px;
         }
-
-        /* DOCUMENT CHECKLIST */
-
         .document-list {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -681,30 +665,36 @@
         .submit::after {
             content: "  →";
         }
-
         .submit:hover {
             background: #c9321b;
             box-shadow: 0 5px 14px #ed492e35;
             transform: translateY(-2px);
         }
-
         .reset {
             background: white;
             color: #ed492e;
         }
-
         .reset:hover {
             background: #fff1ed;
         }
-
+		.previous::before
+		{
+			content:"← ";
+		}
+		.previous
+		{
+            background: white;
+            color: #ed492e;			
+		}
+		.previous:hover
+		{
+			background: #fff1ed;		
+		}
         .hint {
             margin-top: 15px;
             color: #78899f;
             font-size: 11px;
         }
-
-        /* FOOTER */
-
         footer {
             padding: 25px 15px;
             background: #052957;
@@ -736,7 +726,7 @@
 	<body>
 		<header>
 			<figure class="image_container">
-				<img class="top_image" src="C:\Users\DELL\Downloads\image_19b2e4c7.jpg" alt="Rajiv Gandhi College Photo">
+				<img class="top_image" src="college-banner-photo.jpg" alt="Rajiv Gandhi College Photo">
 			</figure>
 		</header>
 		<main class="main">
@@ -758,10 +748,10 @@
 				<aside class="sidebar" id="about">								
 					<h3>Admission Process</h3>
 					<ol class="steps">
-						<li class="step1"><a href="#personal">Personal Information</a></li>
-						<li class="step2"><a href="part2.html">Educational Details</a></li>
-						<li class="step3"><a href="#personal">Document Upload</a></li>
-						<li class="step4"><a href="#personal">Final Submission</a></li>
+						<li class="step1"><a href="index.html">Personal Information</a></li>
+						<li class="step2"><a href="education-details.html">Academic Details</a></li>
+						<li class="step3"><a href="#">Document Upload</a></li>
+						<li class="step4"><a href="declaration.html">Final Submission</a></li>
 					</ol>
 					<div class="sidebar-note">
 						<strong>Important:</strong>
@@ -769,97 +759,146 @@
 						before submitting your application.
 					</div>
 				</aside>
-				
-                <section class="form1" id="academic">
-				<form action="#" method="post">
-                    <div class="section-heading">
-                        <div class="section-icon">🎓</div>
-                        <div>
-                            <h2>Academic Details</h2>
-                            <p>Tell us about your educational background.</p>
-                        </div>
-                        <span class="part-number">PART 2 OF 4</span>
-                    </div>
+                <section class="form1" id="documents">
+					<form class="border-bottom" action="#" method="post">
+						<div class="section-heading">
+							<div class="section-icon">📄</div>
+							<div>
+								<h2>Documents & Preferences</h2>
+								<p>Provide your documents and preferences.</p>
+							</div>
+							<span class="part-number">PART 3 OF 4</span>
+						</div>
 
-                    <div class="fields">
+						<p class="group-title">Required Documents</p>
 
-                        <div class="field">
-                            <label for="qualification">Previous Qualification</label>
-                            <select id="qualification"
-                                    name="qualification" required>
-                                <option value="">Select qualification</option>
-                                <option>SSC (10th)</option>
-                                <option>HSC (12th)</option>
-                                <option>Diploma</option>
-                                <option>Graduation</option>
-                            </select>
-                        </div>
+						<div class="document-list">
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="10th Marksheet">
+								10th Marksheet
+							</label>
 
-                        <div class="field">
-                            <label for="board">Board / University</label>
-                            <input id="board" name="board"
-                                   type="text"
-                                   placeholder="Enter board or university"
-                                   required>
-                        </div>
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="12th Marksheet">
+								12th Marksheet
+							</label>
 
-                        <div class="field">
-                            <label for="passing">Passing Year</label>
-                            <select id="passing" name="passing" required>
-                                <option value="">Select year</option>
-                                <option>2026</option>
-                                <option>2025</option>
-                                <option>2024</option>
-                                <option>2023</option>
-                                <option>2022</option>
-                                <option>2021</option>
-                            </select>
-                        </div>
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="Transfer Certificate">
+								Transfer Certificate
+							</label>
 
-                        <div class="field">
-                            <label for="percentage">Percentage / CGPA</label>
-                            <input id="percentage" name="percentage"
-                                   type="number"
-                                   min="0" max="100" step="0.01"
-                                   placeholder="e.g. 85.50"
-                                   required>
-                        </div>
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="Character Certificate">
+								Character Certificate
+							</label>
 
-                        <div class="field full">
-                            <span class="group-title">Course Applying For</span>
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="Photo ID">
+								Photo ID Proof
+							</label>
 
-                            <div class="choice-group">
-                                <label class="choice">
-                                    <input type="radio" name="course"
-                                           value="BCA" required>
-                                    BCA
-                                </label>
+							<label>
+								<input type="checkbox" name="documents[]"
+									   value="Leaving Certificate">
+								Leaving Certificate
+							</label>
+						</div>
 
-                                <label class="choice">
-                                    <input type="radio" name="course"
-                                           value="BCS">
-                                    BCS
-                                </label>
+						<p class="hint">
+							This checklist is for demonstration. Verify the
+							college's actual document requirements.
+						</p>
 
-                                <label class="choice">
-                                    <input type="radio" name="course"
-                                           value="BSc Computer Science">
-                                    B.Sc. Computer Science
-                                </label>
-                            </div>
-                        </div>
+						<div class="fields" style="margin-top: 25px;">
 
-                        <div class="field full">
-                            <label for="department">Preferred Department</label>
-                            <select id="department" name="department" required>
-                                <option value="">Select department</option>
-                                <option>Computer Science</option>
-                                <option>Computer Applications</option>
-                                <option>Information Technology</option>
-                            </select>
-                        </div>
+							<div class="field">
+								<label for="photo">Student Photograph</label>
+								<div class="upload-box">
+									<input id="photo" name="photo"
+										   type="file"
+										   accept=".jpg,.jpeg,.png">
+									<p>Accepted formats: JPG and PNG.</p>
+								</div>
+							</div>
 
-                    </div>
+							<div class="field">
+								<label for="marksheet">Previous Marksheet</label>
+								<div class="upload-box">
+									<input id="marksheet" name="marksheet"
+										   type="file"
+										   accept=".pdf,.jpg,.jpeg,.png">
+									<p>Accepted formats: PDF, JPG and PNG.</p>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="group-title">Hostel Required?</span>
+
+								<div class="choice-group">
+									<label class="choice">
+										<input type="radio" name="hostel"
+											   value="Yes">
+										Yes
+									</label>
+
+									<label class="choice">
+										<input type="radio" name="hostel"
+											   value="No">
+										No
+									</label>
+								</div>
+							</div>
+
+							<div class="field">
+								<span class="group-title">Transport Required?</span>
+
+								<div class="choice-group">
+									<label class="choice">
+										<input type="radio" name="transport"
+											   value="Yes">
+										Yes
+									</label>
+
+									<label class="choice">
+										<input type="radio" name="transport"
+											   value="No">
+										No
+									</label>
+								</div>
+							</div>
+
+							<div class="field full">
+								<label for="request">Additional Information</label>
+								<textarea id="request" name="request"
+										  placeholder="Enter any additional information (optional)"></textarea>
+							</div>
+
+						</div>
+						<p class="hint">
+							Fields marked with * are required.
+						</p>
+						<div class="button_area">
+							<a href="index.html">
+								<button type="button" class="previous" formaction="education-details.html">
+									Previous
+								</button>
+							</a>
+							<div class="button_area_2">
+								<button type="reset" class="reset">
+									Clear Form
+								</button>
+								<button type="submit" class="submit" formaction="declaration.html">
+									Save &amp; Next
+								</button>
+							</div>
+						</div>						
+					</form>					
                 </section>
 			</section>
 		</main>
